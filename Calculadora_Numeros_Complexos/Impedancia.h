@@ -1,6 +1,7 @@
 #ifndef IMPEDANCIA_H
 #define IMPEDANCIA_H
-#include<QString>
+
+#include<string>
 
 template <class impedancia> class Impedancia
 {
@@ -34,25 +35,25 @@ private:
     double n_real,n_imaginario;
 };
 
-template <> class Impedancia<QString>
+template <> class Impedancia<std::string>
 {
 public:
-    Impedancia(QString real, QString imaginario)
+    Impedancia(std::string real, std::string imaginario)
     {
         this->n_real = real;
         this->n_imaginario = imaginario;
     }
-    QString Get_Real() const
+    std::string Get_Real() const
     {
         return this->n_real;
     }
-    QString Get_Imaginario() const
+    std::string Get_Imaginario() const
     {
         return this->n_imaginario;
     }
 
 private:
-    QString n_real,n_imaginario;
+    std::string n_real,n_imaginario;
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "Janela_Principal.h"
 #include "ui_Janela_Principal.h"
+#include<string>
 
 
 Janela_Principal::Janela_Principal(QWidget *parent)
@@ -130,15 +131,16 @@ void Janela_Principal::on_Calcular_Eletrica_clicked()
 
     //Fazendo o calculo para impedancia
     Variavel_Complexa_Resultado = Variavel_Complexa_1 / Variavel_Complexa_2;
-    //armazenado o resultado em um objeto da classe Impedancia
-    Impedancia<QString> auxiliar(QString::number(Variavel_Complexa_Resultado.Get_Real()),QString::number(Variavel_Complexa_Resultado.Get_Imaginario()));
+    //armazenando o resultado em um objeto da classe Impedancia
+    Impedancia<std::string> auxiliar(std::to_string(Variavel_Complexa_Resultado.Get_Real()),std::to_string(Variavel_Complexa_Resultado.Get_Imaginario()));
     //escrevendo na tela a impedancia calculada que foi armazenada como string no objeto auxiliar
-    ui->Impedancia_Real->setText(auxiliar.Get_Real());
-    ui->Impedancia_imaginario->setText(auxiliar.Get_Imaginario());
+    QString s(auxiliar.Get_Real().c_str()),s2(auxiliar.Get_Imaginario().c_str());
+    ui->Impedancia_Real->setText(s);
+    ui->Impedancia_imaginario->setText(s2);
 
     //Fazendo o calculo para Potencia
     Variavel_Complexa_Resultado = Variavel_Complexa_1 * Variavel_Complexa_2;
-    //armazenado o resultado em um objeto da classe Potencia
+    //armazenando o resultado em um objeto da classe Potencia
     Potencia<double> potencia(Variavel_Complexa_Resultado.Get_Real(),Variavel_Complexa_Resultado.Get_Imaginario());
     //escrevendo na tela a potencia calculada
     ui->Potencia_Real->setText(QString("%1").arg(potencia.Get_Real()));
