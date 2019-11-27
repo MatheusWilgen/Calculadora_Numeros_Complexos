@@ -8,12 +8,12 @@ Para utilizar basta realizar o download dos arquivos, com todos os arquivos em u
 
 Para compilar digite:
 
-#make
+# make
 
 Para executar e utilizar a calculadora:
 
-#./nome_do_executavel
+# ./nome_do_executavel
 
-Normalmente o nome do executável será Calculadora_Numeros_Complexos, então:
+Normalmente o nome do executável será *Calculadora_Numeros_Complexos, então:
 
-#./Calculadora_Numeros_Complexos
+# ./Calculadora_Numeros_Complexos
